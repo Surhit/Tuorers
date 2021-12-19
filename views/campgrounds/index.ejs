@@ -1,0 +1,20 @@
+<%layout('layout/boilerplate') -%>
+
+<div class="container mx-auto ">
+        <h1 class="mb-4 mt-4 text-center">Campgrounds</h1>
+        <div class="mx-auto text-center m-3">
+        <a href="/campgrounds/new"><button class="btn btn-primary mx-auto text-center">Create Camp</button></a>
+        </div>
+        <%for(let campground of campgrounds){ %>
+        <div class="card mb-3 p-2 mx-auto" style="width: 38rem;">
+                <img src="<%=campground.image%>/300x200" class="card-img-top" alt="">
+                <div class="card-body">
+                  <a href="/campgrounds/<%=campground._id%>" style="text-decoration: none;"><h5 class="card-title"><%=campground.title%></h5></a>
+                  <p class="card-text"><%=campground.description%></p>
+                  <p class="text-muted"><%=campground.location%></p>
+                  <form action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                   </form>
+                </div>
+              </div><%}%>         
+</div>

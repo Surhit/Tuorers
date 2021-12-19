@@ -1,0 +1,41 @@
+
+<%layout('layout/boilerplate') -%>
+<div class="container mx-auto my-5 w-50" >
+       <h2 class="text-center"><%=campground.title%> Campground</h2>
+       <div class="card mx-auto my-5" style="width: 38rem;">
+              <img src="<%=campground.image%>/400x200" class="card-img-top" >
+              <div class="card-body">
+                     <p class="card-text"><%=campground.description%></p>
+                     <p class="text-muted"><%=campground.location%></p>
+                     <div class="mx-2" style="color: red;font-size: 20px;margin-bottom: 0;">Price</div>
+                     <div class="text-muted mb-4  mx-2"> Rs <%=campground.price%>.00</div>
+                     <a href="/campgrounds/update/<%=campground._id%>"><button class="btn btn-primary" type="submit">Update</button></a>
+              </div>
+       </div>
+       <h3>Reviews</h3>
+
+       <% var cnt=0;  for(let review of campground.reviews){ cnt++; %>
+              <div class="card mb-4">
+                     <h5 class="card-title mt-2 m-2">Review <%=cnt%></h5>
+                     <p class="card-body mb-0"><%= review.body %></p>
+                     <div class="text-muted m-2">Rating <%= review.rating %> stars</div>
+                     <form action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                     </form>
+              </div>
+      
+       <%}%>
+       <div>
+
+       </div>
+
+       <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" >
+              <div class="mb-3">
+                     <label for="body" class="form-label">Description: </label>
+                     <textarea id="body" class="form-control "  name="review[body]" placeholder="Share your Reviews!" rows="10" c></textarea>
+              </div>
+              <label for="Rating" class="form-label">Rate us:</label>
+              <input type="range" class="form-range" min="0" max="5" id="Rating" name="review[rating]" >
+              <button type="submit" class="btn btn-primary">Post</button>
+       </form>
+</div>

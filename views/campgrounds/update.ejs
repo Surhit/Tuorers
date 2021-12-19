@@ -1,0 +1,37 @@
+
+
+<%layout('layout/boilerplate') -%>
+       
+        <div class="container mx-auto mt-5">
+            <h3 class="mx-auto my-4">Update Post</h3>
+        <form action="/campgrounds/update/<%=campground._id%>?METHOD=PUT" method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title: </label>
+            <input type="text" id="title" class="form-control" name="title" value="<%=campground.title%>">
+          </div>
+
+          <div class="mb-3">
+            <label for="location" class="form-label">Location: </label>
+            <input type="text" id="location" class="form-control" value="<%=campground.location%>" name="location">
+          </div>
+
+          <div class="mb-3">
+            <label for="description" class="form-label">Description: </label>
+            <textarea id="description" class="form-control"  name="description"><%=campground.description%></textarea>
+          </div>
+
+          <label for="price" class="form-label">Price:</label>
+              <div class="input-group mb-3">
+                    <span class="input-group-text">Rs</span>
+                    <input type="text d-flex" id="price" class="form-control" name="price" value="<%=campground.price%>">
+             </div>
+
+          <div class="mb-3">
+            <label for="image" class="form-label">Image: </label>
+            <input type="text" id="image" class="form-control" value="<%=campground.image%>" name="image">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Update Post</button>
+        
+      </form>
+      </div>

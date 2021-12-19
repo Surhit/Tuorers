@@ -1,0 +1,40 @@
+<%layout('layout/boilerplate') -%>
+<div class="container mx-auto my-5">
+<h3 class="my-3">Add a Campground</h3>
+        <form action="/campgrounds/new" method="post" enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="title" class="form-label">Title: </label>
+                <input type="text" id="title" class="form-control" placeholder="Title" name="title">
+              </div>
+
+              <div class="mb-3">
+                <label for="location" class="form-label">Location: </label>
+                <input type="text" id="location" class="form-control" placeholder="Location" name="location">
+              </div>
+
+              <div class="mb-3">
+                <label for="description" class="form-label">Description: </label>
+                <input type="text" id="description" class="form-control" placeholder="Description" name="description">
+              </div>
+              
+              <label for="price" class="form-label">Price:</label>
+              <div class="input-group mb-3">
+                    <span class="input-group-text">Rs</span>
+                    <input type="text d-flex" id="price" class="form-control" name="price" placeholder="0.00">
+              </div>
+
+              <div class="mb-3">
+                <label for="image" class="form-label">Image: </label>
+                <input type="file" id="image" class="form-control" name="image" multiple>
+              </div>
+
+             <!-- <div class="mb-3">
+                <label for="image" class="form-label">Image: </label>
+                <input type="text" id="image" class="form-control" placeholder="Image" name="image">
+              </div>-->
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+            
+          </form>
+          </div>
+       
